@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, Text } from "react-native";
 export const HomePage = ({ route, navigation }) => {
   return (
     <View style={styles.HomePage}>
-      <Text>This App is about you, and help others</Text>
+      <Text>This App is about helping you, and helping others</Text>
       <Button
         title="Sign Up"
         onPress={() => {
