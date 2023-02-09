@@ -23,7 +23,9 @@ export default function App() {
     try{
 
       // if the secure store can get the loginStatus item, then set the loginStatus to true
-      SecureStore.getItemAsync('loginStatus').then(() => {
+      SecureStore.getItemAsync('loginStatus').then((user) => {
+        const userObj = JSON.parse(user);
+        console.log("Signed in as:" + userObj.email);
         setLoginStatus(true);
       })
       
