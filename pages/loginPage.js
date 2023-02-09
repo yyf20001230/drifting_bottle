@@ -2,7 +2,6 @@ import { StyleSheet, View, Button } from "react-native";
 import { useContext } from "react";
 
 import { AuthContext, signIn } from "../utils/authContext";
-import { signInWithGoogle } from "../utils/firebase_helpers";
 
 export const LoginPage = ({ route, navigation }) => {
   const { setLoginStatus } = useContext(AuthContext);
@@ -12,7 +11,7 @@ export const LoginPage = ({ route, navigation }) => {
       <Button
         title="Google"
         onPress={() => {
-          signInWithGoogle();
+          signIn();
           setLoginStatus(true);
         }}
       />

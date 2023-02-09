@@ -5,6 +5,7 @@ import { LoginPage } from "./pages/loginPage";
 import { RegisterPage } from "./pages/registerPage";
 import { MainPage } from "./pages/mainPage";
 import { AuthContext } from "./utils/authContext";
+import { RegisterWithEmail } from "./pages/registerWithEmailPage";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -58,6 +59,11 @@ export default function App() {
               <Stack.Screen
                 name="Register"
                 component={RegisterPage}
+                options={options.topBar}
+              />
+              <Stack.Screen
+                name="RegisterWithEmail"
+                component={RegisterWithEmail}
                 options={options.topBar}
               />
             </>
