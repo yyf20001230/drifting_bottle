@@ -8,7 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 
-import { SecureStore } from "expo-secure-store";
+import * as SecureStore from "expo-secure-store";
 
 import { auth } from "../utils/firebase";
 import { AuthContext } from "../utils/authContext";
@@ -23,6 +23,7 @@ export const LoginPage = ({ route, navigation }) => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         setLoginStatus(true);
+        navigation.navigate("MainPage");
       }
     });
     return unsubscribe;

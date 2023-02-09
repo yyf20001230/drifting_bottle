@@ -3,7 +3,7 @@ import { StyleSheet, View, Button, Text, Dimensions } from "react-native";
 import { auth } from "../../utils/firebase";
 
 import { AuthContext } from "../../utils/authContext";
-import { SecureStore } from "expo-secure-store";
+import * as SecureStore from "expo-secure-store";
 
 const { width, height } = Dimensions.get("screen");
 

@@ -5,7 +5,7 @@ import { MainPage } from "./pages/mainPage";
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { SecureStore } from "expo-secure-store";
+import * as SecureStore from "expo-secure-store";
 
 import { AuthContext } from "./utils/authContext";
 
@@ -15,15 +15,26 @@ export default function App() {
 
   const [loginStatus, setLoginStatus] = useState(false);
 
+  // retrieve the login status if the device is logged in
   useEffect(() => {
-      try{
-        const loginStatus = SecureStore.getItemAsync('loginStatus');
-        if (loginStatus === 'true') {
-          setLoginStatus(true);
-        }
-      } catch (e) {
-        console.log(e);
-      }
+
+    let controller = new AbortController()
+
+    try{
+
+      // if the secure store can get the loginStatus item, then set the loginStatus to true
+      SecureStore.getItemAsync('loginStatus').then(() => {
+        setLoginStatus(true);
+      })
+      
+    } catch (e) {
+      console.log(e);
+    }
+
+    return () => {
+      controller.abort()
+    }
+
   }, [])
 
   return (
