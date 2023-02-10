@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { LoginPage } from "./pages/loginPage";
+import { RegisterPage } from "./pages/registerPage";
 import { MainPage } from "./pages/mainPage";
 
 import { NavigationContainer } from '@react-navigation/native';
@@ -21,7 +22,6 @@ export default function App() {
     let controller = new AbortController()
 
     try{
-
       // if the secure store can get the loginStatus item, then set the loginStatus to true
       SecureStore.getItemAsync('loginStatus').then((user) => {
         const userObj = JSON.parse(user);
@@ -44,23 +44,21 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           {loginStatus ?
-            <>
-              <Stack.Screen
-                name="Login"
-                component={LoginPage}
-                options={options.topBar}
-              />
               <Stack.Screen
                 name="MainPage"
                 component={MainPage}
                 options={options.topBar}
               />
-            </>
             :
             <>
               <Stack.Screen
                 name="Login"
                 component={LoginPage}
+                options={options.topBar}
+              />
+              <Stack.Screen
+                name="Register"
+                component={RegisterPage}
                 options={options.topBar}
               />
             </>}
