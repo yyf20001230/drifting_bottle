@@ -4,6 +4,7 @@ import { auth, db } from "../../utils/firebase";
 
 import { AuthContext } from "../../utils/authContext";
 import * as SecureStore from "expo-secure-store";
+import LoadingScreen from "./loadingScreen";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -45,29 +46,35 @@ export default function ProfileScreen({ navigation }) {
     });
   };
 
-  return (
+  if (profile.nickName) {
+    return (
+      <View style={styles.ProfileScreen}>
+        <Text>{profile.nickName}</Text>
+        <Text>Listener Level: {profile.listenerLevel}</Text>
+        <Text>Listener Rating: {profile.listenerRating}</Text>
+        <Text>Speaker Engagement: {profile.speakingEngagement}</Text>
+        <Text>Speaker Rating: {profile.speakerRating}</Text>
+        <Image style={styles.avatar} source = {{uri:profile.avatar}} />
 
-    <View style={styles.ProfileScreen}>
-      <Text>{profile ? profile.nickName : "You"}</Text>
-      <Text>Listener Level: {profile ? profile.listenerLevel : "0"}</Text>
-      <Text>Listener Rating: {profile ? profile.listenerRating : "0"}</Text>
-      <Text>Speaker Level: {profile ? profile.speakerLevel : "0"}</Text>
-      <Text>Speaker Rating: {profile ? profile.speakerRating : "0"}</Text>
-
-      <Button
-        title="Sign Out"
-        onPress={() => {
-          handleSignOut();
-        }}
-      />
-    </View>
-  );
+        <Button
+          title="Sign Out"
+          onPress={() => {
+            handleSignOut();
+          }}
+        />
+      </View>
+    );
+  } else {
+    return (
+      <LoadingScreen/>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   ProfileScreen: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "top"
   },
