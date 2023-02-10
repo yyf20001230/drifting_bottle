@@ -1,21 +1,21 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
 
-import teller from '../../../assets/images/teller.png';
+import listener from '../../../assets/images/listener.png';
 
 const { width, height } = Dimensions.get('screen');
 
-export default function TellerCurrentScreen() {
+export default function ListenerCurrentScreen() {
   return (
-    <View style={styles.TellerScreen}>
-      <Image source={teller} style={styles.images} />
-      <Text>Teller Screen</Text>
+    <View style={styles.ListenerScreen}>
+      <Image source={listener} style={styles.images} />
+      <Text>Start a new story</Text>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-    TellerScreen: {
+    ListenerScreen: {
         flex: 1,
         backgroundColor: "#fff",
         alignItems: "center",

@@ -1,29 +1,35 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, Dimensions } from "react-native";
+import { StyleSheet, Text, Dimensions } from "react-native";
+
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import ListenerCurrentScreen from './subscreens/listenerCurrentScreen';
+import ListenerPastScreen from './subscreens/listenerPastScreen';
 
 import listener from '../../assets/images/listener.png';
 
 const { width, height } = Dimensions.get('screen');
+const Tab = createMaterialTopTabNavigator();
 
 export default function ListenerScreen({ navigation }) {
   return (
-    <View style={styles.ListenerScreen}>
-      <Image source={listener} style={styles.images}/>
-      <Text>Start a new story</Text>
-    </View>
+    <Tab.Navigator screenOptions={({ route }) => ({
+      tabBarLabel: ({ focused }) => {
+          let styling = focused ? styles.focused : styles.not_focused;
+          
+          return <Text style={styling}>{route.name}</Text>;
+      }})}>
+      <Tab.Screen name="Current" component={ListenerCurrentScreen} />
+      <Tab.Screen name="Past" component={ListenerPastScreen} />
+    </Tab.Navigator>
   );
 }
 
 const styles = StyleSheet.create({
-    ListenerScreen: {
-        flex: 1,
-        backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center"
-    },
-    images: {
-        width: 0.5 * width,
-        height: 0.2 * height,
-        resizeMode: 'contain'
-    },
+  focused: {
+      fontWeight: 'bold',
+      width: 0.5 * width,
+  },
+  not_focused: {
+  }
 });

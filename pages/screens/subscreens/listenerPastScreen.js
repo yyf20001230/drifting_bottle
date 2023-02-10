@@ -1,15 +1,13 @@
 import React from "react";
 import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
 
-import teller from '../../../assets/images/teller.png';
 
 const { width, height } = Dimensions.get('screen');
 
-export default function TellerCurrentScreen() {
+export default function ListenerPastScreen() {
   return (
     <View style={styles.TellerScreen}>
-      <Image source={teller} style={styles.images} />
-      <Text>Teller Screen</Text>
+      <Text>Start a new story</Text>
     </View>
   );
 }
