@@ -1,14 +1,19 @@
-import React from "react";
-import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
+import { useState } from "react";
+import { StyleSheet, View, Text, Dimensions, Image, TouchableOpacity } from "react-native";
 
 import listener from '../../../assets/images/listener.png';
 
 const { width, height } = Dimensions.get('screen');
 
 export default function ListenerCurrentScreen() {
+
+  const [currentStories, setCurrentStories] = useState([]);
+
   return (
     <View style={styles.ListenerScreen}>
-      <Image source={listener} style={styles.images} />
+      <TouchableOpacity onPress={() => setCurrentStories}>
+        <Image source={listener} style={styles.images} />
+      </TouchableOpacity>
       <Text>Start a new story</Text>
     </View>
   );

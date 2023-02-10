@@ -44,26 +44,18 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           {loginStatus ?
-            <>
-              <Stack.Screen
-                name="Login"
-                component={LoginPage}
-                options={options.topBar}
-              />
+
               <Stack.Screen
                 name="MainPage"
                 component={MainPage}
                 options={{gestureEnabled: false, headerBackVisible: false, headerShown: false}}
               />
-            </>
             :
-            <>
               <Stack.Screen
                 name="Login"
                 component={LoginPage}
                 options={options.topBar}
-              />
-            </>}
+              />}
         </Stack.Navigator>
       </NavigationContainer>
     </AuthContext.Provider>

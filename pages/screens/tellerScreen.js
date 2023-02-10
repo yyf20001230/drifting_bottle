@@ -7,7 +7,7 @@ import TellerCurrentScreen from './subscreens/tellerCurrentScreen';
 import TellerPastScreen from './subscreens/tellerPastScreen';
 
 const Tab = createMaterialTopTabNavigator();
-const { width, height } = Dimensions.get('screen');
+const { width } = Dimensions.get('screen');
 
 export default function TellerScreen({ navigation }) {
   return (
