@@ -21,17 +21,14 @@ export default function App() {
 
     let controller = new AbortController()
 
-    try{
-      // if the secure store can get the loginStatus item, then set the loginStatus to true
-      SecureStore.getItemAsync('loginStatus').then((user) => {
-        const userObj = JSON.parse(user);
+    // if the secure store can get the loginStatus item, then set the loginStatus to true
+    SecureStore.getItemAsync('loginStatus').then((user) => {
+      const userObj = JSON.parse(user);
+      try {
         console.log("Signed in as:" + userObj.email);
         setLoginStatus(true);
-      })
-      
-    } catch (e) {
-      console.log(e);
-    }
+      } catch (e) {}
+    })
 
     return () => {
       controller.abort()
@@ -44,11 +41,11 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           {loginStatus ?
-              <Stack.Screen
-                name="MainPage"
-                component={MainPage}
-                options={{gestureEnabled: false, headerBackVisible: false, headerShown: false}}
-              />
+            <Stack.Screen
+              name="MainPage"
+              component={MainPage}
+              options={{ gestureEnabled: false, headerBackVisible: false, headerShown: false }}
+            />
             :
             <>
               <Stack.Screen
