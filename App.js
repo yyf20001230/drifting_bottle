@@ -47,7 +47,7 @@ export default function App() {
               <Stack.Screen
                 name="MainPage"
                 component={MainPage}
-                options={options.topBar}
+                options={{gestureEnabled: false, headerBackVisible: false, headerShown: false}}
               />
             :
             <>
