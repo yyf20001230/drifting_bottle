@@ -5,7 +5,8 @@ import {
   Text,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 
 import { db, auth } from "../utils/firebase";
