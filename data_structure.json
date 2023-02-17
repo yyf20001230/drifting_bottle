@@ -4,6 +4,7 @@
       "username": "Sashimi",
       "avatar": "https://something.com",
       "joinTime": "2008-01-01 00:00:00",
+      "token": 0,
       "listenerLevel": 1,
       "listenerProgress": 1,
       "listenerRating": 1,

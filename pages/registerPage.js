@@ -67,7 +67,7 @@ export const RegisterPage = ({ navigation }) => {
               style={styles.input}
               onChangeText={e => setNickName(e)}
             />
-            <Text>By registering, I agree to the terms and conditions</Text>
+            <Text>By registering, I agree to the Terms and Conditions</Text>
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
