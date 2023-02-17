@@ -34,7 +34,8 @@
       "teller": "hHKoy84cH8ipy0pWt0csZ0Z0760o2",
       "messages": [3, 4, 5],
       "locked": true,
-      "ended": true
+      "ended": true,
+      "rating": null
     },
     {
       "converstion_id": 17,
@@ -44,7 +45,8 @@
       "teller": "m6xWnYDXIYXjHAm0ZA7LSbTM8r23",
       "messages": [6, 7, 8],
       "locked": false,
-      "ended": true
+      "ended": true,
+      "rating": null
     }
   ],
   "posts": [
@@ -52,7 +54,7 @@
       "post_id": 3,
       "type": "listener_post",
       "time": "2010-09-05 12:00:00",
-      "content": "Hello how are you?",
+      "content": "Hello how are you?"
     },
 
     {
