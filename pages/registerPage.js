@@ -5,8 +5,7 @@ import {
   Text,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity,
-  Image
+  TouchableOpacity
 } from "react-native";
 
 import { db, auth } from "../utils/firebase";
@@ -68,8 +67,7 @@ export const RegisterPage = ({ navigation }) => {
               style={styles.input}
               onChangeText={e => setNickName(e)}
             />
-            <Image source = {{uri:'https://firebasestorage.googleapis.com/v0/b/driftingbottle-776e8.appspot.com/o/avatar_1.png?alt=media&token=e97cc9fe-56c2-4650-8fbe-45218c602478'}} />
-            <Text>By registering, I agree to the terms and conditions</Text>
+            <Text>By registering, I agree to the Terms and Conditions</Text>
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
