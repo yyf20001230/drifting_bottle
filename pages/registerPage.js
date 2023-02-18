@@ -5,7 +5,8 @@ import {
   Text,
   TextInput,
   KeyboardAvoidingView,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from "react-native";
 
 import { db, auth } from "../utils/firebase";
@@ -25,19 +26,21 @@ const images = [
 export const RegisterPage = ({ navigation }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [nickName, setNickName] = useState("");
+    const [userName, setUserName] = useState("");
 
     const handleRegister = () => {
         auth.createUserWithEmailAndPassword(email, password).then((userCredentials) => {
           db.collection('userAccounts').doc(userCredentials.user.uid).set({
-            joinTime: new Date(),
+            username: userName, 
             avatar: images[Math.floor(Math.random() * images.length)],
-            listenerLevel: 1,
-            listenerProgress: 1,
-            listenerRating: 4.5,
-            nickName: nickName,
-            speakingEngagement: 0,
-            speakerRating: 5,
+            joinTime: new Date(),
+            listenerXP: 1,
+            listenerRating: 1,
+            tellerXP: 0,
+            token: 0,
+            tellerConversation: [],
+            listenerConversation: [],
+            listener_lock: false
           });
           const user = userCredentials.user;
           console.log("Registered as ", user.email);
@@ -63,9 +66,9 @@ export const RegisterPage = ({ navigation }) => {
               onChangeText={e => setPassword(e)}
             />
             <TextInput
-              placeholder="nickname"
+              placeholder="username"
               style={styles.input}
-              onChangeText={e => setNickName(e)}
+              onChangeText={e => setUserName(e)}
             />
             <Text>By registering, I agree to the Terms and Conditions</Text>
           </View>

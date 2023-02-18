@@ -4,8 +4,9 @@ import {
   View,
   Text,
   Dimensions,
-  Image,
-  TouchableOpacity
+  TouchableOpacity,
+  TextInput,
+  ImageBackground
 } from "react-native";
 
 import teller from "../../../assets/images/teller.png";
@@ -22,9 +23,12 @@ export default function TellerCurrentScreen() {
         setCurrentStories(!currentStories);
         console.log(currentStories);
       }}>
-        <Image source={currentStories ? teller : teller_opened} style={styles.images} />
+        <ImageBackground source={currentStories ? teller : teller_opened} 
+        style={currentStories ? styles.images : styles.images_opened}>
+          {!currentStories ? <TextInput placeholder="Enter your text"/> : null}
+        </ImageBackground>
       </TouchableOpacity>
-      <Text>Teller Screen</Text>
+      <Text>Start a new story</Text>
     </View>
   );
 }
@@ -39,6 +43,11 @@ const styles = StyleSheet.create({
   images: {
     width: 0.5 * width,
     height: 0.2 * height,
+    resizeMode: "contain"
+  },
+  images_opened:{
+    width: 0.9 * width,
+    height: 0.5 * height,
     resizeMode: "contain"
   }
 });

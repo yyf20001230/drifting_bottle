@@ -15,14 +15,14 @@ export const MainPage = ({ route, navigation }) => {
   return (
     <NavigationContainer independent={true}>
       <Tab.Navigator
-        initialRouteName="listener"
+        initialRouteName="teller"
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
 
-            if (route.name === "listener") {
+            if (route.name === "teller") {
               iconName = focused ? "home" : "home-outline";
-            } else if (route.name === "teller") {
+            } else if (route.name === "listener") {
               iconName = focused ? "list" : "list-outline";
             } else if (route.name === "profile") {
               iconName = focused ? "settings" : "settings-outline";
@@ -32,8 +32,8 @@ export const MainPage = ({ route, navigation }) => {
           }
         })}
       >
-        <Tab.Screen name="listener" component={ListenerScreen} />
         <Tab.Screen name="teller" component={TellerScreen} />
+        <Tab.Screen name="listener" component={ListenerScreen} />
         <Tab.Screen name="profile" component={ProfileScreen} />
       </Tab.Navigator>
     </NavigationContainer>
